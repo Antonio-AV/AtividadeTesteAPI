@@ -7,30 +7,38 @@ Curso: GES
 
 Matrícula: 109
 
-Link para o site utilizado: https://www.futbin.com/
+Link para o site utilizado: https://fakerestapi.azurewebsites.net/
 
-Link para a página do site utilizada nos testes: https://www.futbin.com/22/players
+Utilizei o site Fake Rest API para a realização dos testes solicitados. O site trata-se de uma Fake API como o próprio nome diz, criado justamente para a realização de testes de API. 
 
-Utilizei o site FUTBIN para a realização dos testes solicitados. O site trata-se de uma base de dados com os jogadores do jogo de video game Fifa com todos os jogadores e seus atributos. Para a realização dos testes utilizei especificamente da página de pesquisa do site, utilizando de seus diferentes filtros para obter diferentes resultados desejados.
+ - Primeiro caso de Teste: Utilizar da função GET para verificar se o retorno é em formato de vetor e se os formatos de pageCount (number) e title (String) estão corretos. (TESTE POSITIVO).
 
-Primeiro caso de Teste: Buscar por um jogador de nome inexistente no site - Digitei diferentes letras aleatórias a fim de que o site não encontrasse nenhum jogador com esse nome, e quando isso acontece, o site simplesmente volta para sua página inicial de pesquisa.
+ - Segundo caso de teste: Utilizar da função POST para adicionar um novo autor e verificar se ele foi inserido corretamente. (TESTE POSITIVO).
 
-Segundo caso de teste: Buscar por um jogador de nome existente no site (Neymar) - Realizei a busca de um jogador presente no jogo para que o site mostrasse o jogador pesquisado, no caso, o Neymar.
+ - Terceiro caso de teste: Utilizar da função POST para criar uma nova atividade (causará erro devido a um erro no preenchimento do Json). (TESTE NEGATIVO).
 
-Terceiro caso de teste: Buscar por um goleiro com 3 estrelas de skills - Utilizei dos filtros para pesquisar um goleiro que tivesse 3 estrelas de skills.
+ - Quarto caso de teste: Utilizando da função PUT para atualizar as informações da foto de capa de id 5 e verificando as novas informações. (TESTE POSITIVO).
 
-Quarto caso de teste: Buscar por um goleiro com 5 estrelas de skills (Não existe) - Utilizei dos filtros para buscar um goleiro com 5 estrelas de skill, o que não existe no jogo, logo o site nos dá um retorno de "Não há resultados para essa pesquisa".
+ - Quinto caso de teste:Utilizando da função GET para ver se o tamanho do objeto 1 de User é igual a 4 (causará erro devido a ao tamanho do objeto/response). (TESTE NEGATIVO).
 
-Quinto caso de teste: Buscar por um jogador chamado Bruno natural de Angola - Utilizie dos filtros do site para buscar um jogador chamado Bruno natural de Angola tendo como resultado único o jogador Bruno Ecuélé Manga.
+ - Sexto caso de teste:Utilizando da função DELETE para excluir o livro de ID = 3. (TESTE POSITIVO).
 
-Sexto caso de teste: Buscar por um zagueiro de natural de Togo que jogue na La Liga (Liga espanhola) - Utilizie dos filtros do site para buscar um jogador natural de Togo que jogasse na liga espanhola, tendo como resultado único o jogador Djené.
+Para executar o projeto basta realizar a cópia do repositório para sua máquina, utilizar o comando mvn clean install para instalar as dependencias do projeto, acessá-lo utilizando o GIT BASH ou outra ferramenta similar, e utilizar o comando mvn test –Dtest=ApiRunner para realizar os códigos.
 
-Para executar o projeto basta realizar a cópia do repositório para sua máquina, utilizar o comando npm install para instalar as dependencias do projeto, acessá-lo utilizando o GIT BASH ou outra ferramenta similar, e utilizar o comando ./node_modules/.bin/cypress open para abrir o cypress e poder executá-lo. Você pode também utilizar a linha de comando ./node_modules/.bin/cypress run --spec 'cypress/integration/testesUI/**/'.
+Já o relatório HTML é gerado automaticamente após a execução dos testes, basta abrir o link gerado no prompt.
 
-Já para gerar o relatório HTML basta segui os seguintes comandos:
 
-Adicionando as dependências necessárias para gerar o reporte de testes: npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+QUESTÂO 2 - 
 
-Fazendo merge dos arquivos .json gerados (Após a execução dos testes): npx mochawesome-merge "cypress/reports/*.json" > mochawesome.json
+1. Foi criado apenas uma suíte de testes, representada no código pela api.feature, contendo todos os casos de teste.
 
-Gerando o HTML bonito com os reports: npx marge mochawesome.json
+2. Os testes desenvolvidos são automatizados, uma vez que nós somos os responsáveis por desenvolver o teste, mas a própria máquina é quem executa o teste automático no fim das contas.
+
+3. Os testes realizados correspondem aos testes unitários, uma vez que visam garantir que os módulos que compõem o sistema estejam funcionando separadamente de acordo com as especificações.
+
+4. Os testes realizados são funcionais, uma vez que visam confirmar o que o usuário espera ao utilizar o sistema, e não a eficiência do sistema que é o foco dos testes não funcionais.
+
+5. Sim, levando em conta que o objetivo destes testes é justamente verificar se o fluxo dos dados está dentro do esperado, todos eles podem ser considerados testes end-to-end.
+
+6. Para serem considerados testes de regressão eles devem executar todas as suítes de teste criados e testados anteriormente, pois assim se encontrarem algum erro novo, esse erro se encontra nas mudanças feitas entre a ultima vez que os testes foram realizados e atualmente. 
+
